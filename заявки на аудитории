@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+
+struct Lessons{
+   int ltime;
+   int rtime;
+};
+
+void get(Lessons *a, int n)
+{
+   for (int i = 0; i < n; i++)
+   {
+       cin >> a[i].ltime;
+       cin >> a[i].rtime;
+   }
+}
+
+int f(int n, struct Lessons a[])
+{
+
+   int k = 1;
+   int t = 0;
+   for (int i = 1; i < n; i++)
+    if (a[i].ltime >= a[t].rtime)
+   {
+       k++;
+       t = i;
+   }
+   return k;
+}
+int main()
+{
+
+   int n;
+   cout << "a number of lessons: ";
+   cin >> n;
+   Lessons *a = new Lessons[n];
+   get(a,n);
+
+   cout << "max number: " << f(n, a);
+
+   return 0;
+}
