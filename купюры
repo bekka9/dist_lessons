@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int money[] = {500, 200, 100, 50, 20, 10};
+    int n = 6;
+    int sum;
+    cout << "enter a sum:";
+    cin >> sum;
+    int m = 0;
+    for (int i = 0; i < n; i++)
+    {
+        m += sum/money[i];
+        sum = sum%money[i];
+    }
+    if (sum==0)
+        cout << m;
+    else cout << "-1";
+    return 0;
+}
+
