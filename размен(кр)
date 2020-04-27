@@ -1,0 +1,26 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+    int sum;
+    cout << "enter a sum:";
+    cin >> sum;
+    int *money = new int[n];
+    for (int i=0; i<n; i++)
+        cin >> money[i];
+    sort (money,money + n);
+    reverse (money,money + n);
+    int m = 0;
+    for (int i = 0; i < n; i++)
+    {
+        m += sum/money[i];
+        sum = sum%money[i];
+    }
+        cout << m;
+
+    return 0;
+}
